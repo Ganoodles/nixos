@@ -28,9 +28,17 @@
 		spotify
 		bitwarden
 		kdenlive
-		discord
+		webcord
 		zsh
 	];
+
+	# git is being stupid and gh wont work for authentication
+#	programs.git.enable = true;
+#	programs.git.extraConfig = {
+#		core = {
+#			sshCommand = "-i ~/.ssh/id_ed25519";
+#		};
+#	};
 
 	programs.zsh = {
 		enable = true;
