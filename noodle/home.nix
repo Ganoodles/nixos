@@ -39,7 +39,11 @@
 	programs.zsh = {
 		enable = true;
 		shellAliases = {
-			ll = "ls -l";
+                        an-apply = "sudo nixos-rebuild switch --flake .#";
+                        an-update-system = "nix flake update";
+                        an-update-user = "nix-channel --update";
+                        an-clean-garbage = "sudo nix-collect-garbage -d";
+                        ll = "ls -l";
 		};
 		oh-my-zsh = {
 			enable = true;
