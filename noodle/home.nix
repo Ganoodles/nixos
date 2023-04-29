@@ -30,8 +30,6 @@
 		kdenlive
 		discord
 		zsh
-		git
-		gh
 	];
 
 	programs.zsh = {

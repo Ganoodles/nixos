@@ -2,8 +2,8 @@
 	description = "AAAAAAAAAAAAAAAAAAAAA";
 
 	inputs = {
-		nixpkgs.url = "nixpkgs/nixos-22.11";
-		home-manager.url = "github:nix-community/home-manager/release-22.11";
+		nixpkgs.url = "nixpkgs/nixos-unstable";
+		home-manager.url = "github:nix-community/home-manager";
 		home-manager.inputs.nixpkgs.follows = "nixpkgs";
 		hyprland.url = "github:hyprwm/Hyprland";
 	};

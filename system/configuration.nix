@@ -108,6 +108,8 @@
     htop
     firefox
     neofetch
+    git
+    gh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -121,7 +123,8 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
+  services.openssh.openFirewall = false;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
