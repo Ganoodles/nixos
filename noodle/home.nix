@@ -31,8 +31,6 @@
 		discord
 		zsh
 		git
-		git-crypt
-		gnupg
 		gh
 	];
 
