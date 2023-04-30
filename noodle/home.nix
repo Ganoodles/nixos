@@ -36,15 +36,20 @@
 		gnumake
 		cargo
 		gcc
-		
-		firefox-unwrapped
+  
+    # system apps
+		firefox
+    gnome.gnome-clocks
 
 		spotify
 		bitwarden
 		kdenlive
 		webcord
+    gimp
 
+    # system utils
 		kate
+    dolphin
 		
 		zsh	
 		zplug
@@ -75,11 +80,11 @@
 			export PATH="$HOME/.local/bin":$PATH
 		'';
 		shellAliases = {
-                        an-apply = "sudo nixos-rebuild switch --flake .# --install-bootloader";
-                        an-update-system = "nix flake update";
-                        an-update-user = "nix-channel --update";
-                        an-clean-garbage = "sudo nix-collect-garbage -d";
-                        ll = "ls -l";
+      an-apply = "sudo nixos-rebuild switch --flake .# --install-bootloader";
+      an-update-system = "nix flake update";
+      an-update-user = "nix-channel --update";
+      an-clean-garbage = "sudo nix-collect-garbage -d";
+      ll = "ls -l";
 		};
 		zplug = {
 			enable = true;
@@ -91,9 +96,9 @@
 	};
 
 	
-  	programs.starship = {
-    		enable = true;
-    		# Configuration written to ~/.config/starship.toml
+  programs.starship = {
+    enable = true;
+    # Configuration written to ~/.config/starship.toml
 		settings = {
 			# add_newline = false;
 
@@ -104,6 +109,6 @@
 
 			# package.disabled = true;
 		};
-  	};
+  };
 
 }
