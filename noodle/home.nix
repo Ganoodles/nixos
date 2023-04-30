@@ -42,6 +42,7 @@
     gnome.gnome-clocks
 
 		spotify
+    spotifyd
 		bitwarden
 		kdenlive
 		webcord
@@ -56,14 +57,17 @@
 		starship	
 
 		# hypr
+    libnotify
 		rofi-wayland
-		eww
+    eww-wayland
 		grim
 		slurp
 		hyprpaper
+    mako
 		udiskie
 		clipman
 		wl-clipboard
+    xdg-desktop-portal-hyprland
 	];
 
 	# git is being stupid and gh wont work for authentication

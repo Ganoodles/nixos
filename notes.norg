@@ -1,0 +1,21 @@
+hi lol
+* Just some stuff for me to do:
+  *** Themes and backups
+      - ( ) Create an eww bar if I can figure out how
+      --- ( ) Back up ~/.config/eww/eww.yuck and .scss
+      - ( ) Backup hyprpaper.conf
+      --- ( ) Backup wallpapers
+      - ( ) Create a rofi theme and backup
+      - ( ) Create an sddm theme and backup
+      - ( ) Create a kitty theme and backup
+      - ( ) Maybe find a way to put lunarvim into a flake
+
+* Cheatsheat cus I cant remember stuff:
+  *** Neorg
+      - *Ctrl + Space* while hovering over a todo item cycles it trough states
+  *** Hypr
+      - *Super + P* takes a screenshot of a region
+      - *Super + Shift + P* takes a screenshot of the entire desktop
+      - *Super + Enter* Opens the kitty terminal
+      - *Ctrl + D* Opens rofi
+
