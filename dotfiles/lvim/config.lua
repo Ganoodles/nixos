@@ -1,0 +1,1 @@
+/home/noodle/.config/lvim/config.lua
