@@ -49,6 +49,28 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  # custom fonts!  
+  fonts = {
+    enableDefaultFonts = true;
+    fonts = with pkgs; [
+      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+      ubuntu_font_family
+
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+     
+      fira-code
+      fira-code-symbols
+    ];
+
+    fontconfig = {
+      defaultFonts = {
+        serif = ["Ubuntu" "jetbrains-mono" "noto-fonts" "noto-fonts-cjk" "noto-fonts-emoji"];
+      };
+    };
+  };
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -106,7 +128,6 @@
     vim
     wget
     htop
-    firefox
     neofetch
     git
   ];
