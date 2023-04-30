@@ -27,22 +27,23 @@
 
 	# packages
 	home.packages = with pkgs; [
-		alacritty
+    # cli tools
+    alacritty
 		kitty # for hypr
 		neovim
-		
+    zsh	zplug starship	
+	
+    # dev stuff
 		python3Full
 		nodejs
-		gnumake
-		cargo
-		gcc
+		gnumake cargo gcc # build tools
   
-    # system apps
+    # core system apps
 		firefox
     gnome.gnome-clocks
 
+    # other system apps
 		spotify
-    spotifyd
 		bitwarden
 		kdenlive
 		webcord
@@ -50,24 +51,18 @@
 
     # system utils
 		kate
-    dolphin
-		
-		zsh	
-		zplug
-		starship	
+    cinnamon.nemo
 
 		# hypr
-    libnotify
-		rofi-wayland
-    eww-wayland
-		grim
-		slurp
-		hyprpaper
-    mako
-		udiskie
-		clipman
-		wl-clipboard
-    xdg-desktop-portal-hyprland
+    xdg-desktop-portal-hyprland # xdg for hyprland
+		rofi-wayland # file 
+    eww-wayland # bar!
+    swww # animated wallpaper daemon
+    grim slurp # screenshot utility 
+    mako # notification daemon
+    libnotify # pushes notifications to mako
+		udiskie # auto mounts stuff
+		clipman wl-clipboard # clipboard manager
 	];
 
 	# git is being stupid and gh wont work for authentication
@@ -85,8 +80,8 @@
 		'';
 		shellAliases = {
       an-apply = "sudo nixos-rebuild switch --flake .# --install-bootloader";
-      an-update-system = "nix flake update";
-      an-update-user = "nix-channel --update";
+      an-update-system = "sudo nix flake update";
+      an-update-user = "sudo nix-channel --update";
       an-clean-garbage = "sudo nix-collect-garbage -d";
       ll = "ls -l";
 		};

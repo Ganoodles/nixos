@@ -74,9 +74,12 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  # wayland!
+  xdg.portal.wlr.enable = true;
+
+  # Enables the KDE Plasma Desktop Environment.
+  services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -159,6 +162,9 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
+
+  # Make GTK themes apply in wayland applications
+  programs.dconf.enable = true;
 
   # setup nixos in default shell, this is configured and installed in homelab
   programs.zsh.enable = true;

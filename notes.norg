@@ -9,6 +9,7 @@ hi lol
       - ( ) Create an sddm theme and backup
       - ( ) Create a kitty theme and backup
       - ( ) Maybe find a way to put lunarvim into a flake
+      - (x) Fix X11 stop job being stuck !/it was KDE Plasma causing it/!
 
 * Cheatsheat cus I cant remember stuff:
   *** Neorg
