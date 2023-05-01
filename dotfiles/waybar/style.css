@@ -1,0 +1,40 @@
+@import "/home/noodle/.nix/themes/waybar/themes/mocha.css";
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Ubuntu, Helvetica, Arial, "Weather Icons", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+    transition: all 0.2s;
+    font-weight: bold;
+}
+
+window#waybar {
+    background: alpha(@crust, 0.9);
+    color: white;
+}
+
+#workspaces button {
+    padding: 0 7px;
+    padding-top: 2px;
+    background: transparent;
+    color: white;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.active {
+    background: @base;
+    border-bottom: 3px solid white;
+}
+
+#mode, #clock, #battery, #mpris, #tray, #workspaces, #window, #custom-weather, #wireplumber {
+    padding-right: 20px;
+}
+
+tooltip {
+  background: @crust;
+  border-radius: 3px;
+  border: 1px solid rgba(133, 133, 133, 0.5);
+}
+

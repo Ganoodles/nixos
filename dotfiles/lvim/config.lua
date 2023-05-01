@@ -31,7 +31,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
 -- -- Change theme settings
--- lvim.colorscheme = "lunar"
+lvim.colorscheme = "catppuccin-mocha"
 
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
@@ -102,6 +102,7 @@ lvim.builtin.treesitter.auto_install = true
 
 -- -- Additional Plugins <https://www.lunarvim.org/docs/plugins#user-plugins>
 lvim.plugins = {
+  { "catppuccin/nvim", name = "catppuccin" },
   {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",

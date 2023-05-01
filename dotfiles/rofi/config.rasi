@@ -1,0 +1,3 @@
+//@theme "/nix/store/bf1fymxayzqp268x853hwb7vxyxxgnim-rofi-1.7.5+wayland1/share/rofi/themes/paper-float.rasi"
+//@theme "/nix/store/bf1fymxayzqp268x853hwb7vxyxxgnim-rofi-1.7.5+wayland1/share/rofi/themes/Arc-Dark.rasi"
+@theme "/nix/store/bf1fymxayzqp268x853hwb7vxyxxgnim-rofi-1.7.5+wayland1/share/rofi/themes/dmenu.rasi"

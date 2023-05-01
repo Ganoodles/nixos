@@ -16,6 +16,9 @@
     experimental-features = nix-command flakes
   '';
 
+  # flatpaks lol
+  services.flatpak.enable = true;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -79,6 +82,8 @@
 
   # Enables the KDE Plasma Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+  services.gnome.core-utilities.enable = false;
   # services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
@@ -128,10 +133,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim
+    neovim
     wget
     htop
-    neofetch
     git
   ];
 

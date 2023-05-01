@@ -1,0 +1,11 @@
+set action $argv[1]
+
+set dvalue 5
+
+if test $action = up
+    wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ $dvalue%+
+else if test $action = down
+    wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ $dvalue%-
+else
+    exit 2
+end

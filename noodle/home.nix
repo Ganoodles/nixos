@@ -29,9 +29,9 @@
 	home.packages = with pkgs; [
     # cli tools
     alacritty
-		kitty # for hypr
 		neovim
     zsh	zplug starship	
+    neofetch
 	
     # dev stuff
 		python3Full
@@ -43,7 +43,7 @@
     gnome.gnome-clocks
 
     # other system apps
-		spotify
+		spotifywm
 		bitwarden
 		kdenlive
 		webcord
@@ -54,22 +54,28 @@
 
     # system utils
 		kate
-    gvfs
     gnome.nautilus
 
+    # customization
     gnome.gnome-tweaks
     gradience
     adw-gtk3
+    catppuccin-gtk
+    catppuccin-cursors
+    lxappearance
+    gnome.gnome-themes-extra
 
+    # audio
     pavucontrol
     easyeffects
     wireplumber
+    playerctl
 
 		# hypr
     xdg-desktop-portal-hyprland # xdg for hyprland
-		rofi-wayland # file 
-    eww-wayland # bar!
+		rofi-wayland # files 
     swww # animated wallpaper daemon
+    hyprpicker # color picker
     grim slurp # screenshot utility 
     mako # notification daemon
     libnotify # pushes notifications to mako
@@ -85,9 +91,26 @@
 #		};
 #	};
 
+  programs.kitty = {
+    enable = true;
+    theme = "Catppuccin-Mocha";
+    extraConfig = ''
+      confirm_os_window_close 0
+      window_padding_width 10
+    '';
+  };
+
+  programs.waybar = {
+    enable = true;
+    package = pkgs.waybar.overrideAttrs (oldAttrs: {
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    });
+  };
+
 	programs.zsh = {
 		enable = true;
 		initExtra = ''
+      source ~/.nix/themes/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
 			export PATH="$HOME/.local/bin":$PATH
 		'';
 		shellAliases = {
@@ -107,19 +130,26 @@
 	};
 
 	
-  programs.starship = {
-    enable = true;
-    # Configuration written to ~/.config/starship.toml
-		settings = {
-			# add_newline = false;
+  programs.starship = 
+    let
+      flavour = "mocha";
+    in {
+      enable = true;
+      # Configuration written to ~/.config/starship.toml
+		  settings = {
+        format = "$all";
+        palette = "catppuccin_${flavour}";
+		  } // builtins.fromTOML (builtins.readFile
+        (pkgs.fetchFromGitHub
+          {
+            owner = "catppuccin";
+            repo = "starship";
+            rev = "3e3e544"; # Replace with the latest commit hash
+            sha256 = "soEBVlq3ULeiZFAdQYMRFuswIIhI9bclIU8WXjxd7oY=";
+          } + /palettes/${flavour}.toml));
+    };
 
-			# character = {
-			#   success_symbol = "[➜](bold green)";
-			#   error_symbol = "[➜](bold red)";
-			# };
-
-			# package.disabled = true;
-		};
-  };
 
 }
+
+

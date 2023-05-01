@@ -1,0 +1,59 @@
+{
+    "layer": "top",
+    "output": "DP-3",
+    "position": "top",
+    "height": 30,
+
+    "modules-left": ["wlr/workspaces", "hyprland/submap"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["tray", "mpris", "custom/weather", "clock"],
+
+    "mpris": {
+	        "format": "{player_icon}  {artist} - {title}",
+	        "format-paused": "{status_icon}  {artist} - {title}",
+            "player-icons": {
+		            "default": "▶",
+		            "mpv": "🎵"
+	        },
+	        "status-icons": {
+		            "paused": "⏸"
+	        }
+    }, 
+    "sndio": {
+        "format": "{raw_value} 🎜",
+        "scroll-step": 3
+    },
+    "hyperland/submap": {
+        "format": "{}"
+    },
+    "wlr/workspaces": {
+        "format": "{name}",    
+        "separate-outputs": true   
+    },
+    "hyprland/window": {
+        "max-length": 80,
+        "tooltip": false
+    },
+    "clock": {
+        "format": "{:%A, %B %d   •   %I:%M %p}",
+        "tooltip": false
+    },
+
+    "tray": {
+        "icon-size": 18
+    },
+
+    "custom/weather": {
+        "exec": "python ~/.config/waybar/scripts/weather.py",
+        "restart-interval": 300,
+        "return-type": "json",
+        "on-click": "xdg-open https://weather.com/en-IN/weather/today/l/d00d24c8773cc675acb96f26fd360d6a8d69bfcb2a0f8cfb59ffbff7bb3d7ef3"
+    },
+
+    "custom/launcher": {
+        "format": "Launcher",
+        "tooltip": false,
+        "on-click": "rofi -show drun"
+    }
+}
+
