@@ -79,11 +79,12 @@
 
   # wayland!
   xdg.portal.wlr.enable = true;
+  # xdg.portal.enable = true;
 
   # Enables the KDE Plasma Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  services.gnome.core-utilities.enable = false;
+  # services.xserver.desktopManager.gnome.enable = true;
+  # services.gnome.core-utilities.enable = false;
   # services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11

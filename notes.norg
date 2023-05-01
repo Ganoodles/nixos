@@ -1,15 +1,17 @@
 hi lol
 * Just some stuff for me to do:
-  *** Themes and backups
-      - ( ) Spicetify if I can
-      - ( ) Setup something for configuring settings
-      - ( ) Backup wallpapers
-      - ( ) Create a rofi theme and backup
-      - ( ) Create an sddm theme and backup
-      - ( ) Create a kitty theme and backup
-      - ( ) Maybe find a way to put lunarvim into a flake
-      - ( ) Try and made better discord theme thats compatible with webcord
-      - (x) Fix X11 stop job being stuck !/it was KDE Plasma causing it/!
+*** Themes and backups
+    - ( ) fix rofi so all apps show up
+    - ( ) Setup symlinks inside of home manager
+    - ( ) Spicetify if I can
+    - ( ) Setup something for configuring settings
+    - ( ) Backup wallpapers
+    - ( ) Create a rofi theme and backup
+    - ( ) Create an sddm theme and backup
+    - ( ) Create a kitty theme and backup
+    - ( ) Maybe find a way to put lunarvim into a flake
+    - ( ) Try and made better discord theme thats compatible with webcord
+    - (x) Fix X11 stop job being stuck !/it was KDE Plasma causing it/!
 
 * Cheatsheet cus I cant remember stuff:
 *** Hypr

@@ -43,7 +43,7 @@
     gnome.gnome-clocks
 
     # other system apps
-		spotifywm
+    spotify
 		bitwarden
 		kdenlive
 		webcord
