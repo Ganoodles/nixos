@@ -55,6 +55,7 @@
     # system utils
 		kate
     gnome.nautilus
+    gnome.eog
 
     # customization
     gnome.gnome-tweaks
