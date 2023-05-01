@@ -1,10 +1,10 @@
 hi lol
 * Just some stuff for me to do:
   *** Themes and backups
+      - ( ) Setup something for configuring settings
       - ( ) Create an eww bar if I can figure out how
       --- ( ) Back up ~/.config/eww/eww.yuck and .scss
-      - ( ) Backup hyprpaper.conf
-      --- ( ) Backup wallpapers
+      - ( ) Backup wallpapers
       - ( ) Create a rofi theme and backup
       - ( ) Create an sddm theme and backup
       - ( ) Create a kitty theme and backup

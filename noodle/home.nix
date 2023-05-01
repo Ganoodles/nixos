@@ -49,9 +49,21 @@
 		webcord
     gimp
 
+    # funny
+    cava
+
     # system utils
 		kate
-    cinnamon.nemo
+    gvfs
+    gnome.nautilus
+
+    gnome.gnome-tweaks
+    gradience
+    adw-gtk3
+
+    pavucontrol
+    easyeffects
+    wireplumber
 
 		# hypr
     xdg-desktop-portal-hyprland # xdg for hyprland
