@@ -1,4 +1,11 @@
-@import "/home/noodle/.nix/themes/waybar/themes/mocha.css";
+/* set style colors */
+
+@define-color base #1e1e2e;
+@define-color mantle #181825;
+@define-color crust #11111b;
+@define-color text #11111B;
+
+/* styles */
 
 * {
     border: none;
@@ -8,11 +15,6 @@
     min-height: 0;
     transition: all 0.2s;
     font-weight: bold;
-}
-
-window#waybar {
-    background: alpha(@crust, 0.9);
-    color: white;
 }
 
 #workspaces button {

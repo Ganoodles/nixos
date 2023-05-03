@@ -1,7 +1,17 @@
 { config, pkgs, ... }:
+let
+  colors = import (
+    ./colors.nix
+  );
 
+in
 {
-	# Home Manager needs a bit of information about you and the
+  # app imports
+  imports = [
+    ./applications/waybar.nix
+  ];
+
+  # Home Manager needs a bit of information about you and the
 	# paths it should manage.
 	home.username = "noodle";
 	home.homeDirectory = "/home/noodle";
@@ -31,10 +41,15 @@
     alacritty
 		neovim
     zsh	zplug starship	
+    
     neofetch
-	
+    killall
+    inotify-tools
+    tree
+
     # dev stuff
 		python3Full
+    python310Packages.pip
 		nodejs
 		gnumake cargo gcc # build tools
   
@@ -43,27 +58,35 @@
     gnome.gnome-clocks
 
     # other system apps
+    librewolf
+    webcord
     spotify
+    spot
+    tidal-hifi
 		bitwarden
-		kdenlive
-		webcord
     gimp
+    krita
+    steam
+
+    kdenlive glaxnimate mlt mediainfo
+
+    obs-studio
+    obs-studio-plugins.obs-vkcapture
 
     # funny
     cava
 
     # system utils
 		kate
-    gnome.nautilus
+    cinnamon.nemo
     gnome.eog
+    celluloid
 
     # customization
-    gnome.gnome-tweaks
     gradience
     adw-gtk3
     catppuccin-gtk
     catppuccin-cursors
-    lxappearance
     gnome.gnome-themes-extra
 
     # audio
@@ -71,8 +94,10 @@
     easyeffects
     wireplumber
     playerctl
+    wireplumber
+    mpdris2
 
-		# hypr
+		# desktop stuff
     xdg-desktop-portal-hyprland # xdg for hyprland
 		rofi-wayland # files 
     swww # animated wallpaper daemon
@@ -91,21 +116,16 @@
 #			sshCommand = "-i ~/.ssh/id_ed25519";
 #		};
 #	};
-
+  
   programs.kitty = {
     enable = true;
-    theme = "Catppuccin-Mocha";
     extraConfig = ''
-      confirm_os_window_close 0
-      window_padding_width 10
-    '';
-  };
+      background ${colors.base}
+      foreground ${colors.text}
 
-  programs.waybar = {
-    enable = true;
-    package = pkgs.waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    });
+      confirm_os_window_close 0
+      window_padding_width 5
+    '';
   };
 
 	programs.zsh = {
@@ -115,7 +135,7 @@
 			export PATH="$HOME/.local/bin":$PATH
 		'';
 		shellAliases = {
-      an-apply = "sudo nixos-rebuild switch --flake .# --install-bootloader";
+      an-apply = "sudo nixos-rebuild switch --flake ~/.nix --install-bootloader";
       an-update-system = "sudo nix flake update";
       an-update-user = "sudo nix-channel --update";
       an-clean-garbage = "sudo nix-collect-garbage -d";
@@ -130,7 +150,6 @@
 		};
 	};
 
-	
   programs.starship = 
     let
       flavour = "mocha";
@@ -149,7 +168,6 @@
             sha256 = "soEBVlq3ULeiZFAdQYMRFuswIIhI9bclIU8WXjxd7oY=";
           } + /palettes/${flavour}.toml));
     };
-
 
 }
 

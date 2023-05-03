@@ -6,19 +6,20 @@ import json
 
 # weather icons
 weather_icons = {
-    "sunnyDay": "",
-    "clearNight": "",
-    "cloudyFoggyDay": "",
-    "cloudyFoggyNight": "",
-    "rainyDay": "",
-    "rainyNight": "",
-    "snowyIcyDay": "",
-    "snowyIcyNight": "",
-    "severe": "",
-    "default": "",
+    "sunnyDay": "☀️",
+    "clearNight": "🌕",
+    "cloudyFoggyDay": "⛅",
+    "cloudyFoggyNight": "☁️",
+    "rainyDay": "🌧️",
+    "rainyNight": "🌧️",
+    "snowyIcyDay": "❄️",
+    "snowyIcyNight": "❄️",
+    "severe": "🌀",
+    "default": "⛅",
 }
 
-location_id = "d00d24c8773cc675acb96f26fd360d6a8d69bfcb2a0f8cfb59ffbff7bb3d7ef3?unit=e" # the unit=e makes it farenheight
+# from https://weather.com/en-IN/weather/today/l/{location_id}?unit=e
+location_id = "24a1ed8c5c7fe7b04b53bd30a3ce9a4700dc4f8b5e5a9a8735ebd928e6ba6419"
 
 
 # priv_env_cmd = 'cat $PRIV_ENV_FILE | grep weather_location | cut -d "=" -f 2'
@@ -26,7 +27,7 @@ location_id = "d00d24c8773cc675acb96f26fd360d6a8d69bfcb2a0f8cfb59ffbff7bb3d7ef3?
 #     priv_env_cmd, shell=True, capture_output=True).stdout.decode('utf8').strip()
 
 # get html page
-url = "https://weather.com/en-IN/weather/today/l/" + location_id
+url = "https://weather.com/en-IN/weather/today/l/" + location_id + "?unit=e"
 html_data = PyQuery(url=url)
 
 # current temperature
@@ -101,7 +102,7 @@ prediction = f"\n\n    (hourly) {prediction}" if len(prediction) > 0 else 
 # tooltip text
 tooltip_text = str.format(
     "\t\t{}\t\t\n{}\n{}\n{}\n\n{}\n{}\n{}{}",
-    f'<span size="xx-large">{temp}</span>',
+    f'<span size="xx-large">{icon} {temp}F</span>',
     f"<big>{icon}</big>",
     f"<big>{status}</big>",
     f"<small>{temp_feel_text}</small>",
@@ -113,7 +114,7 @@ tooltip_text = str.format(
 
 # print waybar module data
 out_data = {
-    "text": f"{temp}F",
+    "text": f"{icon} {temp}F",
     "alt": status,
     "tooltip": tooltip_text,
     "class": status_code,

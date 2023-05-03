@@ -23,6 +23,23 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  
+  # authentication agent
+  systemd = {
+    user.services.polkit-gnome-authentication-agent-1 = {
+      description = "polkit-gnome-authentication-agent-1";
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+          Type = "simple";
+          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+          Restart = "on-failure";
+          RestartSec = 1;
+          TimeoutStopSec = 10;
+        };
+    };
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -51,28 +68,30 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
-  # custom fonts!  
+  
+  # fonts
   fonts = {
-    enableDefaultFonts = true;
     fonts = with pkgs; [
-      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
-      ubuntu_font_family
-
+      # normal fonts
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-     
-      fira-code
-      fira-code-symbols
+
+      # nerdfonts
+      (nerdfonts.override {fonts = ["FiraCode"];})
     ];
 
-    fontconfig = {
-      defaultFonts = {
-        serif = ["Ubuntu" "jetbrains-mono" "noto-fonts" "noto-fonts-cjk" "noto-fonts-emoji"];
-      };
+    # use fonts specified by user rather than default ones
+    enableDefaultFonts = false;
+
+    fontconfig.defaultFonts = {
+      serif = ["Noto Serif" "Noto Color Emoji"];
+      sansSerif = ["Noto Sans" "Noto Color Emoji"];
+      monospace = ["FiraCode"];
+      emoji = ["Noto Color Emoji"];
     };
   };
+
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -138,6 +157,8 @@
     wget
     htop
     git
+    
+    distrobox
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -175,5 +196,11 @@
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
 
 }

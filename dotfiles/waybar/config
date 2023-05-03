@@ -6,19 +6,26 @@
 
     "modules-left": ["wlr/workspaces", "hyprland/submap"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["tray", "mpris", "custom/weather", "clock"],
+    "modules-right": ["tray", "mpris", "wireplumber", "custom/weather", "clock"],
 
     "mpris": {
 	        "format": "{player_icon}  {artist} - {title}",
 	        "format-paused": "{status_icon}  {artist} - {title}",
             "player-icons": {
-		            "default": "▶",
-		            "mpv": "🎵"
+		            "default": "▶️",
+		            "mpv": "🎸"
 	        },
 	        "status-icons": {
-		            "paused": "⏸"
+		            "paused": "⏸️"
 	        }
     }, 
+    "wireplumber": {
+        "format": "🎸 {volume}%",
+        "on-scroll-down": "python ~/.config/waybar/scripts/pw-control.py --percent 5 --change down",
+        "on-scroll-up": "python ~/.config/waybar/scripts/pw-control.py --percent 5 --change up",
+        "format-muted": "",
+        "on-click": "helvum"
+    },
     "sndio": {
         "format": "{raw_value} 🎜",
         "scroll-step": 3
@@ -47,7 +54,7 @@
         "exec": "python ~/.config/waybar/scripts/weather.py",
         "restart-interval": 300,
         "return-type": "json",
-        "on-click": "xdg-open https://weather.com/en-IN/weather/today/l/d00d24c8773cc675acb96f26fd360d6a8d69bfcb2a0f8cfb59ffbff7bb3d7ef3"
+        "on-click": "xdg-open https://weather.com/en-IN/weather/today/l/24a1ed8c5c7fe7b04b53bd30a3ce9a4700dc4f8b5e5a9a8735ebd928e6ba6419?unit=e"
     },
 
     "custom/launcher": {
