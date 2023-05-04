@@ -9,6 +9,7 @@ in
   # app imports
   imports = [
     ./applications/waybar.nix
+    ./applications/hyprland/hyprland.nix
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -100,6 +101,7 @@ in
 		# desktop stuff
     xdg-desktop-portal-hyprland # xdg for hyprland
 		rofi-wayland # files 
+    bemenu
     swww # animated wallpaper daemon
     hyprpicker # color picker
     grim slurp # screenshot utility 
@@ -120,8 +122,8 @@ in
   programs.kitty = {
     enable = true;
     extraConfig = ''
-      background ${colors.base}
-      foreground ${colors.text}
+      background #${colors.base}
+      foreground #${colors.text}
 
       confirm_os_window_close 0
       window_padding_width 5

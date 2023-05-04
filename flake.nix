@@ -30,7 +30,10 @@
 					(home-manager.nixosModules.home-manager)
 				    	{
 						config = {
-							home-manager.users.noodle = import ./noodle/home.nix;
+              home-manager.users.noodle.imports  = [
+                ./noodle/home.nix
+                (hyprland.homeManagerModules.default)
+              ];
 							home-manager.useGlobalPkgs = true;
 							home-manager.useUserPackages = true;
 						};
@@ -41,14 +44,6 @@
 				];
 			};
 		};
-    homeConfigurations."noodle@nixos" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86-64-linux;
-
-      modules = [
-        hyprland.homeManagerModules.default
-        {wayland.windowManager.hyprland.enable = true;}
-      ];
-    };
 		
 	};
 }
