@@ -1,6 +1,7 @@
 hi lol
 * Just some stuff for me to do:
  - ( ) Themes and backups
+  - ( ) something I forgot
     - ( ) package themes into a flake
     - ( ) fix rofi so all apps show up
     - ( ) Setup symlinks inside of home manager

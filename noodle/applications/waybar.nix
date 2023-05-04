@@ -1,9 +1,6 @@
 { config, pkgs, ... }: 
 let
-  colors = import (
-    ../colors.nix
-  );
-
+  colors = import (../colors.nix);
 in
 {
   programs.waybar = {
@@ -13,8 +10,8 @@ in
     }); # I forgot what this was for but it wont work unless its enabled
     style = ''
       window#waybar {
-        background: alpha(${colors.crust}, 0.9);
-        color: ${colors.text}
+        background: alpha(#${colors.crust}, 0.9);
+        color: #${colors.text}
       }
             
       * {
@@ -25,6 +22,14 @@ in
           min-height: 0;
           transition: all 0.2s;
           font-weight: bold;
+      }
+
+      #mode, #clock, #battery, #mpris, #tray, #workspaces, #window, #custom-weather, #wireplumber {
+          padding-right: 20px;
+      }
+
+      #tray menu {
+        padding: 10px;
       }
 
       #workspaces button {
@@ -40,12 +45,9 @@ in
           border-bottom: 3px solid white;
       }
 
-      #mode, #clock, #battery, #mpris, #tray, #workspaces, #window, #custom-weather, #wireplumber {
-          padding-right: 20px;
-      }
 
       tooltip {
-        background: @crust;
+        background: #${colors.crust};
         border-radius: 3px;
         border: 1px solid rgba(133, 133, 133, 0.5);
       }

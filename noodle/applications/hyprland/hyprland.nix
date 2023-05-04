@@ -13,8 +13,6 @@ in
     };
     extraConfig = ''
       # notification daemon, script accepts background as first value, text color as second
-      exec-once = ~/.nix/scripts/mako.sh ${colors.base} ${colors.text}
-
       general {
           # See https://wiki.hyprland.org/Configuring/Variables/ for more
 

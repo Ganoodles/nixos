@@ -10,6 +10,8 @@ in
   imports = [
     ./applications/waybar.nix
     ./applications/hyprland/hyprland.nix
+
+    ./services/dunst.nix
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -60,6 +62,7 @@ in
 
     # other system apps
     librewolf
+    libreoffice
     webcord
     spotify
     spot
@@ -105,8 +108,8 @@ in
     swww # animated wallpaper daemon
     hyprpicker # color picker
     grim slurp # screenshot utility 
-    mako # notification daemon
-    libnotify # pushes notifications to mako
+    dunst # notification daemon
+    libnotify # pushes notifications to dunst
 		udiskie # auto mounts stuff
 		clipman wl-clipboard # clipboard manager
 	];

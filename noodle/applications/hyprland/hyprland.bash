@@ -153,7 +153,7 @@
       bind = $mainMod SHIFT, M, exit, 
       bind = $mainMod, E, exec, nautilus
       bind = $mainMod, SPACE, togglefloating, 
-      bind = $mainMod, D, exec, systemd-run --no-ask-password --user --scope $(${pkgs.bemenu}/bin/bemenu-run -l 10 --prompt ">" -P "" -H 10 -n -W 0.5 -c --nb "##1d2021" --fb "##1d2021" --hb "##1d2021" --ab "##1d2021" --tb "##1d2021" --no-exec)
+      bind = $mainMod, D, exec, rofi -show drun -theme dmenu -font "hack 10" 
       # bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, J, togglesplit, # dwindle
 
