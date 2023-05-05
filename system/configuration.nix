@@ -134,9 +134,20 @@
     #media-session.enable = true;
   };
   
-  # enable virtualbox
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
+  # virtualisation stuff
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+    };
+    virtualbox = {
+      host = {
+        enable = true;
+        enableExtensionPack = true;
+      };
+    };
+  };
+
   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
   
   # Enable touchpad support (enabled default in most desktopManager).
