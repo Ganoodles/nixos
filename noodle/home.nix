@@ -49,6 +49,7 @@ in
     killall
     inotify-tools
     tree
+    lazygit
 
     # dev stuff
 		python3Full
