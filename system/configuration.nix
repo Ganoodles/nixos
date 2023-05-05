@@ -164,7 +164,6 @@
     wget
     htop
     git
-    
     linuxPackages.v4l2loopback
     distrobox
   ];
@@ -196,6 +195,9 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
+  
+  hardware.opentabletdriver.enable = true;
+  hardware.opentabletdriver.daemon.enable = true;
 
   # Make GTK themes apply in wayland applications
   programs.dconf.enable = true;
