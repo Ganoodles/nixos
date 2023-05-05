@@ -1,7 +1,7 @@
-
 #!/bin/bash
+# This scripts source is from https://gist.github.com/schauveau/b5a2d20c98e6bea8c8cd50410ff01253
 
-#
+
 # A script to display the pipewire/wireplumber volume in Waybar
 # 
 # This is an optimised bash script. wpctl is called once every $DELAY seconds 
