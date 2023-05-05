@@ -67,6 +67,7 @@ in
     spotify
     spot
     tidal-hifi
+    motrix
 		bitwarden
     gimp
     krita
