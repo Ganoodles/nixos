@@ -4,7 +4,6 @@ hi lol
   - (-) Themes and backups
   - ( ) Look into using gradiences firefox colors plugin
   - ( ) Find a better way to handle scripts
-  - ( ) Fix weird boot lag 
   - ( ) Find some more wallpapers, maybe try implementing faerber api if possible
   - ( ) Setup symlinks inside of home manager
   - ( ) Spicetify if I can
@@ -12,6 +11,7 @@ hi lol
   - ( ) Create an sddm theme and backup (using gdm in the meantime, might use it forever though)
   - ( ) Create a kitty theme and backup  
   - ( ) Try and made better discord theme thats compatible with webcord
+  - (x) Fix weird boot lag 
   - (x) Backup wallpapers
   - (x) Setup something for configuring settings
   - (x) fix rofi so all apps show up

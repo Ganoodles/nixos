@@ -5,6 +5,8 @@
 source=~/.nix/themes/hyprland/themes/mocha.conf
 
 ### startup apps
+exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
 # status bar
 exec-once = waybar &
 
@@ -46,8 +48,6 @@ input {
     sensitivity = 0.25 # -1.0 - 1.0, 0 means no modifications
     accel_profile = flat
 }
-
-
 
 
 decoration {
@@ -106,8 +106,6 @@ device:epic-mouse-v1 {
 
 # Example windowrule v2
 # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
-
-#windowrule = float, ^(kitty)$
 windowrule = float, pavucontrol
 
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
@@ -193,7 +191,3 @@ bind = $mainMod, mouse_up, workspace, e-1
 # Move/resize windows with mainMod + LMB/RMB and dragging
 bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
-
-
-# screensharing
-exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
