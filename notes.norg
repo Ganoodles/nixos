@@ -1,19 +1,19 @@
 hi lol
 * Just some stuff for me to do:
- - ( ) Themes and backups
-  - ( ) something I forgot
-    - ( ) package themes into a flake
-    - ( ) fix rofi so all apps show up
-    - ( ) Setup symlinks inside of home manager
-    - ( ) Spicetify if I can
-    - ( ) Setup something for configuring settings
-    - ( ) Backup wallpapers
-    - ( ) Create a rofi theme and backup
-    - ( ) Create an sddm theme and backup
-    - ( ) Create a kitty theme and backup
-    - ( ) Maybe find a way to put lunarvim into a flake
-    - ( ) Try and made better discord theme thats compatible with webcord
-    - (x) Fix X11 stop job being stuck !/it was KDE Plasma causing it/!
+  - (-) Maybe find a way to put lunarvim into a flake
+  - (-) Themes and backups
+  - ( ) Fix weird boot lag 
+  - ( ) Find some more wallpapers, maybe try implementing faerber api if possible
+  - ( ) Setup symlinks inside of home manager
+  - ( ) Spicetify if I can
+  - ( ) Create a rofi theme and backup
+  - ( ) Create an sddm theme and backup (using gdm in the meantime, might use it forever though)
+  - ( ) Create a kitty theme and backup  
+  - ( ) Try and made better discord theme thats compatible with webcord
+  - (x) Backup wallpapers
+  - (x) Setup something for configuring settings
+  - (x) fix rofi so all apps show up
+  - (x) Fix X11 stop job being stuck !/it was KDE Plasma causing it/!
 
 * Cheatsheet cus I cant remember stuff:
 *** Hypr
@@ -38,5 +38,5 @@ hi lol
     - *Alt + k* and *Alt + j* Move line up and down
 
     - *Ctrl + hjkl* Moves windows in normal mode
-**** Neorg
+  **** Neorg
         - *Ctrl + Space* while hovering over a todo item cycles it trough states
