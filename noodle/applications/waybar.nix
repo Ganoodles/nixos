@@ -1,7 +1,6 @@
 { config, pkgs, ... }: 
 let
   colors = import (../colors.nix);
-  settings =  builtins.fromJSON ("{ mainBar = " + builtins.readFile ./settings.json + "}" ); 
 in
 {
   programs.waybar = {
@@ -29,11 +28,6 @@ in
         modules-left = ["wlr/workspaces" "hyprland/submap"];
         modules-center = ["hyprland/window"];
         modules-right = ["tray" "mpris" "custom/pw-levels" "custom/weather" "clock"];
-
-        "wlr/workspaces" = {
-          format = "{name}";
-          separate-outputs = true;
-        };
 
         "clock" = {
           format = "{:%A, %B %d   •   %I:%M %p}";
