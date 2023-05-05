@@ -76,9 +76,6 @@ in
 
     kdenlive glaxnimate mlt mediainfo
 
-    obs-studio
-    obs-studio-plugins.obs-vkcapture
-
     # funny
     cava
 
@@ -123,7 +120,18 @@ in
 #			sshCommand = "-i ~/.ssh/id_ed25519";
 #		};
 #	};
-  
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-vkcapture
+      obs-gstreamer
+      obs-vaapi
+      input-overlay
+      wlrobs
+    ];
+  };
+
   programs.kitty = {
     enable = true;
     extraConfig = ''
