@@ -59,32 +59,32 @@ temp_feel_text = f"Feels like {temp_feel}c"
 # print(temp_feel_text)
 
 # min-max temperature
-temp_min = (
+temp_max = (
     html_data("div[data-testid='wxData'] > span[data-testid='TemperatureValue']")
     .eq(0)
     .text()
 )
-temp_max = (
+temp_min = (
     html_data("div[data-testid='wxData'] > span[data-testid='TemperatureValue']")
     .eq(1)
     .text()
 )
-temp_min_max = f"  {temp_min}\t\t  {temp_max}"
+temp_min_max = f"🌡️  {temp_min}\t🌡️  {temp_max}"
 # print(temp_min_max)
 
 # wind speed
 wind_speed = html_data("span[data-testid='Wind']").text().split("\n")[1]
-wind_text = f"煮  {wind_speed}"
+wind_text = f"🍃  {wind_speed}"
 # print(wind_text)
 
 # humidity
 humidity = html_data("span[data-testid='PercentageValue']").text()
-humidity_text = f"  {humidity}"
+humidity_text = f"💧  {humidity}"
 # print(humidity_text)
 
 # visibility
 visbility = html_data("span[data-testid='VisibilityValue']").text()
-visbility_text = f"  {visbility}"
+visbility_text = f"👀  {visbility}"
 # print(visbility_text)
 
 # air quality index
@@ -96,7 +96,7 @@ prediction = html_data("section[aria-label='Hourly Forecast']")(
     "div[data-testid='SegmentPrecipPercentage'] > span"
 ).text()
 prediction = prediction.replace("Chance of Rain", "")
-prediction = f"\n\n    (hourly) {prediction}" if len(prediction) > 0 else prediction
+prediction = f"\n\n🌧️  (hourly) {prediction}" if len(prediction) > 0 else prediction
 # print(prediction)
 
 # tooltip text
@@ -108,7 +108,7 @@ tooltip_text = str.format(
     f"<small>{temp_feel_text}</small>",
     f"<big>{temp_min_max}</big>",
     f"{wind_text}\t{humidity_text}",
-    f"{visbility_text}\tAQI {air_quality_index}",
+    f"{visbility_text}\t🔥 {air_quality_index}",
     f"<i>{prediction}</i>",
 )
 
