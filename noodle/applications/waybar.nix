@@ -8,7 +8,7 @@ in
     enable = true;
     package = pkgs.waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    }); # I forgot what this was for but it wont work unless its enabled
+    }); # This is so workspaces work, since its experimental
 
     settings = {
       secondaryMonitors = {
