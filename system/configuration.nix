@@ -165,6 +165,7 @@
     htop
     git
     
+    linuxPackages.v4l2loopback
     distrobox
   ];
 
