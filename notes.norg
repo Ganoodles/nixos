@@ -2,6 +2,7 @@ hi lol
 * Just some stuff for me to do:
   - (-) Maybe find a way to put lunarvim into a flake
   - (-) Themes and backups
+  - ( ) Find a better way to handle scripts
   - ( ) Fix weird boot lag 
   - ( ) Find some more wallpapers, maybe try implementing faerber api if possible
   - ( ) Setup symlinks inside of home manager
