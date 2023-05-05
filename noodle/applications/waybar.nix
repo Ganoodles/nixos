@@ -51,18 +51,11 @@ in
           };
         };
 
-        "wireplumber" = {
-          format = "🎸 {volume}%";
-          on-scroll-down = "sh ~/.nix/scripts/waybar/pw-control.sh 5 down";
-          on-scroll-up = "sh ~/.nix/scripts/waybar/pw-control.sh 5 up";
-          format-muted = "🔇";
-          on-click = "pavucontrol";
-        };
-
         "custom/pw-levels" = {
           exec = "sh ~/.nix/scripts/waybar/pw-levels.sh";
           on-scroll-down = "sh ~/.nix/scripts/waybar/pw-control.sh 5 down";
           on-scroll-up = "sh ~/.nix/scripts/waybar/pw-control.sh 5 up";
+          on-click = "pavucontrol";
           tooltip = false;
           max-length = 10;
         };
