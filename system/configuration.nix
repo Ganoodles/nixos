@@ -179,6 +179,17 @@
     distrobox
   ];
 
+  nixpkgs.config.packageOverrides = pkgs: {
+    distrobox = pkgs.distrobox.overrideAttrs (prev: {
+      src = pkgs.fetchFromGitHub { 
+        owner = "89luca89";
+        repo = "distrobox";
+        rev = "f008b521ee776a66c36a87848c85d3e3f0f6a3dd";
+        sha256 = "p/1lhG7BtTmaq8stW633+GRrr1cGnI2WYEjS0CQX4L4=";
+      };
+    });
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
