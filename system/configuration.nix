@@ -6,10 +6,9 @@
 
 {
   # this should be replaced depending on the system
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Make ready for nix flakes
   nix.package = pkgs.nixFlakes;
@@ -24,7 +23,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  
+
   # authentication agent
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
@@ -33,12 +32,13 @@
       wants = [ "graphical-session.target" ];
       after = [ "graphical-session.target" ];
       serviceConfig = {
-          Type = "simple";
-          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-          Restart = "on-failure";
-          RestartSec = 1;
-          TimeoutStopSec = 10;
-        };
+        Type = "simple";
+        ExecStart =
+          "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
     };
   };
 
@@ -69,7 +69,7 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-  
+
   # fonts
   fonts = {
     fonts = with pkgs; [
@@ -79,20 +79,19 @@
       noto-fonts-emoji
 
       # nerdfonts
-      (nerdfonts.override {fonts = ["FiraCode"];})
+      (nerdfonts.override { fonts = [ "FiraCode" ]; })
     ];
 
     # use fonts specified by user rather than default ones
     enableDefaultFonts = false;
 
     fontconfig.defaultFonts = {
-      serif = ["Noto Serif" "Noto Color Emoji"];
-      sansSerif = ["Noto Sans" "Noto Color Emoji"];
-      monospace = ["FiraCode"];
-      emoji = ["Noto Color Emoji"];
+      serif = [ "Noto Serif" "Noto Color Emoji" ];
+      sansSerif = [ "Noto Sans" "Noto Color Emoji" ];
+      monospace = [ "FiraCode" ];
+      emoji = [ "Noto Color Emoji" ];
     };
   };
-
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -133,7 +132,7 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-  
+
   # virtualisation stuff
   virtualisation = {
     podman = {
@@ -149,7 +148,7 @@
   };
 
   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
-  
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -181,7 +180,7 @@
 
   nixpkgs.config.packageOverrides = pkgs: {
     distrobox = pkgs.distrobox.overrideAttrs (prev: {
-      src = pkgs.fetchFromGitHub { 
+      src = pkgs.fetchFromGitHub {
         owner = "89luca89";
         repo = "distrobox";
         rev = "f008b521ee776a66c36a87848c85d3e3f0f6a3dd";
@@ -217,7 +216,7 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
-  
+
   hardware.opentabletdriver.enable = true;
   hardware.opentabletdriver.daemon.enable = true;
 
@@ -231,8 +230,10 @@
 
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    remotePlay.openFirewall =
+      true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall =
+      true; # Open ports in the firewall for Source Dedicated Server
   };
 
 }

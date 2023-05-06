@@ -1,9 +1,7 @@
 { config, pkgs, lib, ... }:
-let
-  colors = import (../colors.nix);
-in
-{
-  home.packages = [pkgs.libnotify];
+let colors = import (../colors.nix);
+in {
+  home.packages = [ pkgs.libnotify ];
   services.dunst = {
     enable = true;
     settings = {
@@ -31,12 +29,12 @@ in
         background = "#${colors.mantle}";
         foreground = "#${colors.text}";
         timeout = 4;
-      };      
+      };
       urgency_high = {
         background = "#a33737";
         foreground = "#${colors.text}";
         timeout = 10;
       };
-    }; 
+    };
   };
 }

@@ -1,8 +1,6 @@
-{ config, pkgs, ... }: 
-let
-  colors = import (../colors.nix);
-in
-{
+{ config, pkgs, ... }:
+let colors = import (../colors.nix);
+in {
   programs.waybar = {
     enable = true;
     package = pkgs.waybar.overrideAttrs (oldAttrs: {
@@ -14,24 +12,23 @@ in
         layer = "top";
         position = "top";
         height = 30;
-        output = ["HDMI-A-1"];
+        output = [ "HDMI-A-1" ];
 
-        modules-left = ["wlr/workspaces" "hyprland/submap"];
+        modules-left = [ "wlr/workspaces" "hyprland/submap" ];
       };
 
       mainMonitor = {
         layer = "top";
         position = "top";
         height = 30;
-        output = ["DP-3"];
+        output = [ "DP-3" ];
 
-        modules-left = ["wlr/workspaces" "hyprland/submap"];
-        modules-center = ["hyprland/window"];
-        modules-right = ["tray" "mpris" "custom/pw-levels" "custom/weather" "clock"];
+        modules-left = [ "wlr/workspaces" "hyprland/submap" ];
+        modules-center = [ "hyprland/window" ];
+        modules-right =
+          [ "tray" "mpris" "custom/pw-levels" "custom/weather" "clock" ];
 
-        "clock" = {
-          format = "{:%A, %B %d   •   %I:%M %p}";
-        };
+        "clock" = { format = "{:%A, %B %d   •   %I:%M %p}"; };
 
         "mpris" = {
           format = "{player_icon} {artist} - {title}";
@@ -40,9 +37,7 @@ in
             default = "▶️";
             mpv = "🎸";
           };
-          status-icons = {
-            paused = "⏸️";
-          };
+          status-icons = { paused = "⏸️"; };
         };
 
         "custom/pw-levels" = {
@@ -62,7 +57,7 @@ in
 
       };
     };
-    
+
     style = ''
       window#waybar {
         background: alpha(#${colors.crust}, 0.9);

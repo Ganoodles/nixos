@@ -1,16 +1,10 @@
 { config, pkgs, lib, ... }:
-let
-  colors = import (
-    ../../colors.nix
-  );
+let colors = import (../../colors.nix);
 
-in
-{
+in {
   wayland.windowManager.hyprland = {
     enable = true;
-    xwayland = {
-      enable = true;
-    };
+    xwayland = { enable = true; };
     extraConfig = ''
       # notification daemon, script accepts background as first value, text color as second
       general {
@@ -25,7 +19,6 @@ in
           layout = dwindle
       }
 
-    '' 
-    + builtins.readFile ./hyprland.bash;
+    '' + builtins.readFile ./hyprland.bash;
   };
 }
