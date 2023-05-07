@@ -8,6 +8,7 @@ in {
     ./applications/hyprland/hyprland.nix
 
     ./applications/neovim.nix
+
     ./services/dunst.nix
   ];
 
@@ -152,8 +153,24 @@ in {
     '';
   };
 
-  programs.zsh = {
+
+	programs.zsh = {
     enable = true;
+
+		enableAutosuggestions = true;
+		enableSyntaxHighlighting = true;
+		
+		autocd = true;
+
+		initExtra = "neofetch";
+
+		dirHashes = {
+			nix = "$HOME/.nix";
+			dl = "$HOME/Downloads";
+			dc = "$HOME/Documents";
+			code = "$HOME/code";
+		};
+
     shellAliases = {
       an-apply =
         "sudo nixos-rebuild switch --flake ~/.nix --install-bootloader";
@@ -164,33 +181,11 @@ in {
     };
 
     oh-my-zsh = {
+			custom = "$HOME/.nix/dotfiles/zsh/";
       enable = true;
       plugins = [ "git" "thefuck" "copyfile" "copybuffer" "dirhistory" "sudo" "history" ];
-      theme = "fishy";
+      theme = "oxide";
     };
- 
-    plugins = [
-    {
-      name = "zsh-syntax-highlighting";
-      file = "zsh-syntax-highlighting.zsh";
-      src = pkgs.fetchFromGitHub {
-        owner = "zsh-users";
-        repo = "zsh-syntax-highlighting";
-        rev = "754cefe0181a7acd42fdcb357a67d0217291ac47";
-        sha256 = "kWgPe7QJljERzcv4bYbHteNJIxCehaTu4xU9r64gUM4=";
-      };
-    }
-    {
-      # will source zsh-autosuggestions.plugin.zsh
-      name = "zsh-autosuggestions";
-      src = pkgs.fetchFromGitHub {
-        owner = "zsh-users";
-        repo = "zsh-autosuggestions";
-        rev = "584bcbac7aca914e32cd67bf20ba0f3f38f44d17";
-        sha256 = "0z6i9wjjklb4lvr7zjhbphibsyx51psv50gm07mbb0kj9058j6kc";
-      };
-    }
-    ];
   };
 
 }
