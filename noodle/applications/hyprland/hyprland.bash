@@ -12,8 +12,9 @@ exec-once = waybar &
 
 # wallpapers
 exec-once = swww init
-exec = swww img -o DP-3 ~/.nix/wallpapers/spider-mocha.png
-exec = swww img -o HDMI-A-1 ~/.nix/wallpapers/spider-v-mocha.png
+exec = swww img ~/.nix/wallpapers/leaves-1.jpg
+# exec = swww img -o DP-3 ~/.nix/wallpapers/spider-mocha.png
+# exec = swww img -o HDMI-A-1 ~/.nix/wallpapers/spider-v-mocha.png
 
 # polkit is started in ~/.nix/system/configuration.nix under systemd
 # clipboard manager
