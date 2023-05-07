@@ -137,6 +137,11 @@
 
   # virtualisation stuff
   virtualisation = {
+    docker = {
+      rootless = {
+        enable = true;
+      };
+    };
     podman = {
       enable = true;
       dockerCompat = true;
