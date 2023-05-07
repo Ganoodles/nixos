@@ -6,16 +6,16 @@ import json
 
 # weather icons
 weather_icons = {
-    "sunnyDay": "☀️",
-    "clearNight": "🌕",
-    "cloudyFoggyDay": "⛅",
-    "cloudyFoggyNight": "☁️",
-    "rainyDay": "🌧️",
-    "rainyNight": "🌧️",
-    "snowyIcyDay": "❄️",
-    "snowyIcyNight": "❄️",
-    "severe": "🌀",
-    "default": "⛅",
+    "sunnyDay": "󰖙",
+    "clearNight": "󰽢",
+    "cloudyFoggyDay": "",
+    "cloudyFoggyNight": "",
+    "rainyDay": "󰼳",
+    "rainyNight": "󰖗",
+    "snowyIcyDay": "󰜗",
+    "snowyIcyNight": "󰜗",
+    "severe": "󰢘",
+    "default": "󰖙",
 }
 
 # from https://weather.com/en-IN/weather/today/l/{location_id}?unit=e
@@ -69,22 +69,22 @@ temp_min = (
     .eq(1)
     .text()
 )
-temp_min_max = f"🌡️  {temp_min}\t🌡️  {temp_max}"
+temp_min_max = f"  {temp_min}\t\t  {temp_max}"
 # print(temp_min_max)
 
 # wind speed
 wind_speed = html_data("span[data-testid='Wind']").text().split("\n")[1]
-wind_text = f"🍃  {wind_speed}"
+wind_text = f"󰖝  {wind_speed}"
 # print(wind_text)
 
 # humidity
 humidity = html_data("span[data-testid='PercentageValue']").text()
-humidity_text = f"💧  {humidity}"
+humidity_text = f"󰸊  {humidity}"
 # print(humidity_text)
 
 # visibility
 visbility = html_data("span[data-testid='VisibilityValue']").text()
-visbility_text = f"👀  {visbility}"
+visbility_text = f"  {visbility}"
 # print(visbility_text)
 
 # air quality index
@@ -96,25 +96,25 @@ prediction = html_data("section[aria-label='Hourly Forecast']")(
     "div[data-testid='SegmentPrecipPercentage'] > span"
 ).text()
 prediction = prediction.replace("Chance of Rain", "")
-prediction = f"\n\n🌧️  (hourly) {prediction}" if len(prediction) > 0 else prediction
+prediction = f"\n\n󰖗  (hourly) {prediction}" if len(prediction) > 0 else prediction
 # print(prediction)
 
 # tooltip text
 tooltip_text = str.format(
     "\t\t{}\t\t\n{}\n{}\n{}\n\n{}\n{}\n{}{}",
-    f'<span size="xx-large">{icon} {temp}F</span>',
+    f'<span size="xx-large">{icon}  {temp}F</span>',
     f"<big>{icon}</big>",
     f"<big>{status}</big>",
     f"<small>{temp_feel_text}</small>",
     f"<big>{temp_min_max}</big>",
     f"{wind_text}\t{humidity_text}",
-    f"{visbility_text}\t🔥 {air_quality_index}",
+    f"{visbility_text}\t󰈸 {air_quality_index}",
     f"<i>{prediction}</i>",
 )
 
 # print waybar module data
 out_data = {
-    "text": f"{icon} {temp}F",
+    "text": f"{icon}  {temp}F",
     "alt": status,
     "tooltip": tooltip_text,
     "class": status_code,

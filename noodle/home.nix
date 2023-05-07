@@ -74,6 +74,7 @@ in {
     gimp
     krita
     steam
+    gnome.gnome-font-viewer
 
     kdenlive
     glaxnimate

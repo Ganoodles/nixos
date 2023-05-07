@@ -31,13 +31,13 @@ in {
         "clock" = { format = "{:%A, %B %d   •   %I:%M %p}"; };
 
         "mpris" = {
-          format = "{player_icon} {artist} - {title}";
-          format-paused = "{status_icon} {artist} - {title}";
+          format = "{player_icon}  {artist} - {title}";
+          format-paused = "{status_icon}  {artist} - {title}";
           player-icons = {
-            default = "▶️";
-            mpv = "🎸";
+            default = "";
+            mpv = "󰎄";
           };
-          status-icons = { paused = "⏸️"; };
+          status-icons = { paused = ""; };
         };
 
         "custom/pw-levels" = {

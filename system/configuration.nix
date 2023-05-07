@@ -73,23 +73,25 @@
   # fonts
   fonts = {
     fonts = with pkgs; [
+      ubuntu_font_family
+      
       # normal fonts
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
 
       # nerdfonts
-      (nerdfonts.override { fonts = [ "FiraCode" ]; })
+      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
     ];
 
     # use fonts specified by user rather than default ones
     enableDefaultFonts = false;
 
     fontconfig.defaultFonts = {
-      serif = [ "Noto Serif" "Noto Color Emoji" ];
-      sansSerif = [ "Noto Sans" "Noto Color Emoji" ];
-      monospace = [ "FiraCode" ];
-      emoji = [ "Noto Color Emoji" ];
+      serif = [ "Noto Serif" "JetBrainsMonoNL" ];
+      sansSerif = [ "Noto Sans" "Noto COlor Emoji" "JetBrainsMonoNL" ];
+      monospace = [ "JetBrainsMonoNL" ];
+      emoji = [ "Noto Color Emoji" "JetBrainsMonoNL" ];
     };
   };
 
