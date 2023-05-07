@@ -1,12 +1,13 @@
-{ config, pkgs, ... }:
-let colors = import (./colors.nix);
-
+{ config, pkgs, lib, ... }:
+let 
+  colors = import (./colors.nix);
 in {
   # app imports
   imports = [
     ./applications/waybar.nix
     ./applications/hyprland/hyprland.nix
 
+    ./applications/neovim.nix
     ./services/dunst.nix
   ];
 
@@ -38,7 +39,6 @@ in {
   home.packages = with pkgs; [
     # cli tools
     alacritty
-    neovim
     zsh
     zplug
     starship
