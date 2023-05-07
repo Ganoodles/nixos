@@ -11,7 +11,7 @@ in {
       secondaryMonitors = {
         layer = "top";
         position = "top";
-        height = 30;
+        height = 35;
         output = [ "HDMI-A-1" ];
 
         modules-left = [ "wlr/workspaces" "hyprland/submap" ];
@@ -20,7 +20,7 @@ in {
       mainMonitor = {
         layer = "top";
         position = "top";
-        height = 30;
+        height = 35;
         output = [ "DP-3" ];
 
         modules-left = [ "wlr/workspaces" "hyprland/submap" ];
