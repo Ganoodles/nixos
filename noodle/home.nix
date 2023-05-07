@@ -44,6 +44,7 @@ in {
     starship
 
     neofetch
+
     killall
     inotify-tools
     tree
@@ -66,6 +67,7 @@ in {
     librewolf
     libreoffice
     webcord
+		mousai
     spotify
     spot
     tidal-hifi
