@@ -152,10 +152,6 @@ in {
 
   programs.zsh = {
     enable = true;
-    initExtra = ''
-            source ~/.nix/themes/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
-      			export PATH="$HOME/.local/bin":$PATH
-      		'';
     shellAliases = {
       an-apply =
         "sudo nixos-rebuild switch --flake ~/.nix --install-bootloader";
@@ -164,29 +160,35 @@ in {
       an-clean-garbage = "sudo nix-collect-garbage -d";
       ll = "ls -l";
     };
-    zplug = {
-      enable = true;
-      plugins = [
-        { name = "zsh-users/zsh-autosuggestions"; }
-        { name = "zsh-users/zsh-syntax-highlighting"; }
-      ];
-    };
-  };
 
-  programs.starship = let flavour = "mocha";
-  in {
-    enable = true;
-    # Configuration written to ~/.config/starship.toml
-    settings = {
-      format = "$all";
-      palette = "catppuccin_${flavour}";
-    } // builtins.fromTOML (builtins.readFile (pkgs.fetchFromGitHub {
-      owner = "catppuccin";
-      repo = "starship";
-      rev = "3e3e544"; # Replace with the latest commit hash
-      sha256 = "soEBVlq3ULeiZFAdQYMRFuswIIhI9bclIU8WXjxd7oY=";
-    } + /palettes/${flavour}.toml));
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "thefuck" "copyfile" "copybuffer" "dirhistory" "sudo" "history" ];
+      theme = "fishy";
+    };
+ 
+    plugins = [
+    {
+      name = "zsh-syntax-highlighting";
+      file = "zsh-syntax-highlighting.zsh";
+      src = pkgs.fetchFromGitHub {
+        owner = "zsh-users";
+        repo = "zsh-syntax-highlighting";
+        rev = "754cefe0181a7acd42fdcb357a67d0217291ac47";
+        sha256 = "kWgPe7QJljERzcv4bYbHteNJIxCehaTu4xU9r64gUM4=";
+      };
+    }
+    {
+      # will source zsh-autosuggestions.plugin.zsh
+      name = "zsh-autosuggestions";
+      src = pkgs.fetchFromGitHub {
+        owner = "zsh-users";
+        repo = "zsh-autosuggestions";
+        rev = "584bcbac7aca914e32cd67bf20ba0f3f38f44d17";
+        sha256 = "0z6i9wjjklb4lvr7zjhbphibsyx51psv50gm07mbb0kj9058j6kc";
+      };
+    }
+    ];
   };
 
 }
-
