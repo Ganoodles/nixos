@@ -23,6 +23,10 @@ hi lol
       - *Super + Shift + P* takes a screenshot of the entire desktop
       - *Super + Enter* Opens the kitty terminal
       - *Ctrl + D* Opens rofi
+*** Neovim
+	- :Ag - fuzzy find code
+	- gcc - comment line out
+	- m - when in nerdtree to do stuff
 *** Neovim/Lunarvim
     - Leader is *Space*
     - *<leader> + sh* Opens help!!!
