@@ -20,13 +20,13 @@ in {
       };
 
       urgency_low = {
-        background = "#${colors.mantle}";
+        background = "#${colors.base}";
         foreground = "#${colors.text}";
         timeout = 4;
       };
 
       urgency_normal = {
-        background = "#${colors.mantle}";
+        background = "#${colors.base}";
         foreground = "#${colors.text}";
         timeout = 4;
       };

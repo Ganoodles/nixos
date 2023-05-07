@@ -60,7 +60,7 @@ in {
 
     style = ''
       window#waybar {
-        background: alpha(#${colors.crust}, 0.9);
+        background: alpha(#${colors.base}, 0.9);
         color: #${colors.text}
       }
             

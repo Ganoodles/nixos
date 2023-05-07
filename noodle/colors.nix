@@ -1,9 +1,6 @@
 {
-  # colors
-  base = "1e1e2e";
-  #base = "#000000"; # for testing
-  mantle = "181825";
-  crust = "11111b";
-  #crust = "#000000"; # for testing
-  text = "CDD6F4";
+  base = "161616"; # main dark color
+  crust = "262626"; # secondary lighter accent
+	border = "73A580";
+  text = "D0D0D0"; # text color
 }

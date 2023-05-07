@@ -13,8 +13,8 @@ in {
           gaps_in = 5
           gaps_out = 20
           border_size = 2
-          col.active_border = 0xff${colors.text},
-          col.inactive_border = 0xff${colors.mantle},
+          col.active_border = 0xff${colors.border},
+          col.inactive_border = 0xff${colors.crust},
 
           layout = dwindle
       }
