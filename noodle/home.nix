@@ -150,6 +150,32 @@ in {
 
       confirm_os_window_close 0
       window_padding_width 15
+      background_opacity 0.95
+
+      foreground            #${colors.text}
+      cursor                #${colors.cursor}
+      selection_background  #${colors.selection}
+
+      color0                #${colors.normal.black}
+      color1                #${colors.normal.red}
+      color2                #${colors.normal.green}
+      color3                #${colors.normal.yellow}
+      color4                #${colors.normal.blue}
+      color5                #${colors.normal.magenta}
+      color6                #${colors.normal.cyan}
+      color7                #${colors.normal.white}
+
+      color8                #${colors.bright.black}
+      color9                #${colors.bright.red}
+      color10               #${colors.bright.green}
+      color11               #${colors.bright.yellow}
+      color12               #${colors.bright.blue}
+      color13               #${colors.bright.magenta}
+      color14               #${colors.bright.cyan}
+      color15               #${colors.bright.white}
+
+
+      selection_foreground #000000
     '';
   };
 

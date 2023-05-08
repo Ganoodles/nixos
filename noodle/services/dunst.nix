@@ -7,7 +7,7 @@ in {
     settings = {
       global = {
         monitor = 1;
-        frame_color = "#${colors.text}";
+        frame_color = "#${colors.border}";
         frame_width = 2;
         corner_radius = 3;
         icon_corner_radius = 3;
