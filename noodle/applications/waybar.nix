@@ -11,7 +11,7 @@ in {
       secondaryMonitors = {
         layer = "top";
         position = "top";
-        height = 35;
+        height = 30;
         output = [ "HDMI-A-1" ];
 
         modules-left = [ "wlr/workspaces" "hyprland/submap" ];
@@ -20,7 +20,7 @@ in {
       mainMonitor = {
         layer = "top";
         position = "top";
-        height = 35;
+        height = 30;
         output = [ "DP-3" ];
 
         modules-left = [ "wlr/workspaces" "hyprland/submap" ];
@@ -29,15 +29,19 @@ in {
           [ "tray" "mpris" "custom/pw-levels" "custom/weather" "clock" ];
 
         "clock" = { format = "{:%A, %B %d   •   %I:%M %p}"; };
+        
+        "tray" = {
+          spacing = 10;
+        };
 
         "mpris" = {
           format = "{player_icon}  {artist} - {title}";
           format-paused = "{status_icon}  {artist} - {title}";
           player-icons = {
-            default = "";
-            mpv = "󰎄";
+            default = " ";
+            mpv = "󰎄 ";
           };
-          status-icons = { paused = ""; };
+          status-icons = { paused = " "; };
         };
 
         "custom/pw-levels" = {
@@ -60,7 +64,7 @@ in {
 
     style = ''
       window#waybar {
-        background: alpha(#${colors.base}, 0.9);
+        background: alpha(#${colors.base}, 0.95);
         color: #${colors.text}
       }
             
@@ -76,10 +80,6 @@ in {
 
       #mode, #clock, #battery, #mpris, #tray, #workspaces, #window, #custom-weather, #custom-pw-levels, #wireplumber {
           padding-right: 20px;
-      }
-
-      #tray menu {
-        padding: 10px;
       }
 
       #workspaces button {
