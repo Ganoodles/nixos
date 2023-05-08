@@ -6,16 +6,16 @@ import json
 
 # weather icons
 weather_icons = {
-    "sunnyDay": "󰖙",
-    "clearNight": "󰽢",
-    "cloudyFoggyDay": "",
-    "cloudyFoggyNight": "",
-    "rainyDay": "󰼳",
-    "rainyNight": "󰖗",
-    "snowyIcyDay": "󰜗",
-    "snowyIcyNight": "󰜗",
-    "severe": "󰢘",
-    "default": "󰖙",
+    "sunnyDay": "󰖙 ",
+    "clearNight": "󰽢 ",
+    "cloudyFoggyDay": " ",
+    "cloudyFoggyNight": " ",
+    "rainyDay": "󰼳 ",
+    "rainyNight": "󰖗 ",
+    "snowyIcyDay": "󰜗 ",
+    "snowyIcyNight": "󰜗 ",
+    "severe": "󰢘 ",
+    "default": "󰖙 ",
 }
 
 # from https://weather.com/en-IN/weather/today/l/{location_id}?unit=e

@@ -64,10 +64,10 @@ VS15=$'\uFE0E'
 VS16=$'\uFE0F'
 VS=""  # replace by $VS15 or $VS16 if needed
 SET1=(
-    $'󰝟'"$VS"
-    $'󰕿'"$VS"
-    $'󰖀'"$VS"
-    $'󰕾'"$VS"
+    $'󰝟 '"$VS"
+    $'󰕿 '"$VS"
+    $'󰖀 '"$VS"
+    $'󰕾 '"$VS"
 )
 
 # Those are FontAwesome icons. They use the Unicode private plane and so are non standard. 
