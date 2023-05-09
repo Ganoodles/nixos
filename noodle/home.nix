@@ -51,8 +51,8 @@ in {
     tree
     lazygit
 
-    # dev stuff
-    python3Full
+    # this is for dependencies, not for dev work, use nix-shell
+    python310Full
     python310Packages.pip
     nodejs
     gnumake
@@ -88,6 +88,7 @@ in {
     cava
 
     # system utils
+    vscode
     kate
     cinnamon.nemo
     gnome.eog
@@ -198,6 +199,8 @@ in {
 		};
 
     shellAliases = {
+      nix-shell-dev = "nix-shell ~/.nix/shells/dev.nix";
+ 
       an-apply =
         "sudo nixos-rebuild switch --flake ~/.nix --install-bootloader";
       an-update-system = "sudo nix flake update";

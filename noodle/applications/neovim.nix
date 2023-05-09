@@ -3,11 +3,9 @@ let
   colors = import (../colors.nix);
 
   remap_config = ''
-    		nnoremap <silent> <Space>f <cmd>Telescope find_files<cr>
-      	nnoremap <silent> <Space>t <cmd>NERDTreeToggle<cr>
-    	'';
-
-  lsp_config = "	\n";
+      nnoremap <silent> <Space>f <cmd>Telescope find_files<cr>
+      nnoremap <silent> <Space>t <cmd>NERDTreeToggle<cr>
+  '';
 
 in {
   programs.neovim = {
@@ -15,6 +13,8 @@ in {
 
     defaultEditor = true;
     viAlias = true;
+
+    # lsp
 
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
@@ -33,9 +33,6 @@ in {
       nerdtree-git-plugin
       vim-devicons # space + t to show filetree
       barbar-nvim # tab bar
-
-      # lsp
-      nvim-lspconfig
 
       lualine-nvim # bottom bar
     ];
