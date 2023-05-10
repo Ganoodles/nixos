@@ -98,7 +98,14 @@ in {
     # system utils
     vscode
     kate
-    cinnamon.nemo
+
+    ffmpeg
+  
+    # nautilus
+    gnome.totem
+    gnome.nautilus
+    nautilus-open-any-terminal
+
     gnome.eog
     celluloid
 
