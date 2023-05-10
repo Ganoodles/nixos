@@ -2,12 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, nix-gaming, ... }:
 
 {
   # this should be replaced depending on the system
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    "${nix-gaming}/modules/pipewireLowLatency.nix"
   ];
 
   # Make ready for nix flakes
@@ -128,7 +129,15 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    jack.enable = true;
+    # jack.enable = true;
+    
+    # uses nix-gaming module
+    lowLatency = {
+      enable = true;
+      # defaults (no need to be set unless modified)
+      quantum = 64;
+      rate = 48000;
+    };
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -224,6 +233,11 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
 
+  services.gnome.tracker.enable = true;
+  services.gnome.tracker-miners.enable = true;
+  services.gvfs.enable = true; # for trash
+  services.gnome.sushi.enable = true;
+  
   hardware.opentabletdriver.enable = true;
   hardware.opentabletdriver.daemon.enable = true;
 

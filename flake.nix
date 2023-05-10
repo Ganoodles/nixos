@@ -27,6 +27,8 @@
         nixos = lib.nixosSystem {
           inherit system;
 
+          specialArgs = { inherit nix-gaming; };
+
           modules = [
             (home-manager.nixosModules.home-manager)
             {
