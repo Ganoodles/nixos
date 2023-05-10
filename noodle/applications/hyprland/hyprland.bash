@@ -1,9 +1,6 @@
 # Source a file (multi-file configs)
 # source = ~/.config/hypr/myColors.conf
 
-# theme
-source=~/.nix/themes/hyprland/themes/mocha.conf
-
 ### startup apps
 exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
