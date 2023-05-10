@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, nix-gaming, ... }:
 let 
   colors = import (./colors.nix);
 in {
@@ -38,6 +38,10 @@ in {
 
   # packages
   home.packages = with pkgs; [
+    
+    #flakes
+    nix-gaming.packages.${pkgs.hostPlatform.system}.osu-stable
+
     # cli tools
     alacritty
     zsh
@@ -50,6 +54,10 @@ in {
     inotify-tools
     tree
     lazygit
+
+    #wine
+    wineWowPackages.stable
+    winetricks
 
     # this is for dependencies, not for dev work, use nix-shell
     python310Full

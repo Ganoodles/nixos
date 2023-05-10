@@ -8,9 +8,10 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     hyprland.url = "github:hyprwm/Hyprland";
+    nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, ... }:
+  outputs = { nixpkgs, home-manager, hyprland, nix-gaming, ... }:
     let
       system = "x86_64-linux";
 
@@ -34,6 +35,7 @@
                   [ ./noodle/home.nix (hyprland.homeManagerModules.default) ];
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = {inherit nix-gaming;};
               };
             }
             hyprland.nixosModules.default
