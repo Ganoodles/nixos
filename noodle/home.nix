@@ -50,37 +50,48 @@ in {
 
     # gui supported
     firefox librewolf mullvad-browser
+    onlyoffice-bin
     pavucontrol easyeffects # audio
     mousai motrix # small gtk
     spotify tidal-hifi amberol # moosic
-    gnome.gnome-clocks gnome.gnome-font-viewer
-    gnome.nautilus gnome.totem gnome.file-roller # files
+    gnome.gnome-disk-utility gnome.gnome-clocks gnome.gnome-font-viewer gnome.gnome-system-monitor
+    gnome.nautilus gnome.totem gnome.file-roller gnome.adwaita-icon-theme # files
     gimp krita gnome.eog # imgs
     kdenlive celluloid # vids
     vscode kate # text
     webcord element-desktop # social
     steam
     libreoffice
-    mullvad-vpn
-    qbittorrent
+    mullvad-vpn qbittorrent
     kitty
     bitwarden
-    
+    popsicle
+    remmina
+    ungoogled-chromium
+    filezilla
+
+    # nextcloud
+    iotas
+
     # cli utilities
     udiskie
     killall
     tree
     gnupg
+    appimage-run
+    glib
     
     # cli apps
     zsh
     neofetch
+    pfetch
     lazygit
     cava
     ffmpeg # also is a dependency
     
     # gaming
-    yuzu-early-access cemu # emu
+    lutris
+    ryujinx cemu # emu
     wineWowPackages.stable winetricks
     nix-gaming.packages.${pkgs.hostPlatform.system}.osu-stable # comment out if building flake for the first time
 
@@ -88,7 +99,9 @@ in {
     inotify-tools
     wireplumber playerctl mpdris2
     glaxnimate mlt mediainfo # kdenlive
-    rnix-lsp # neovim lsp
+    rnix-lsp nodePackages.pyright lua53Packages.lua-lsp # neovim lsp
+    xorg.xinput # controller
+    jq # grimblast
 
     # dev
     python310Full python310Packages.pip
