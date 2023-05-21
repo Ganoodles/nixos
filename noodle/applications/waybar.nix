@@ -38,10 +38,10 @@ in {
           format = "{player_icon}  {artist} - {title}";
           format-paused = "{status_icon}  {artist} - {title}";
           player-icons = {
-            default = " ";
+            default = "󰐊 ";
             mpv = "󰎄 ";
           };
-          status-icons = { paused = " "; };
+          status-icons = { paused = "󰏤 "; };
         };
 
         "custom/pw-levels" = {
@@ -64,7 +64,7 @@ in {
 
     style = ''
       window#waybar {
-        background: alpha(#${colors.base}, 0.95);
+        background: alpha(#${colors.normal.black}, 0.95);
         color: #${colors.text}
       }
             

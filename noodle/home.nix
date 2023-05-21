@@ -7,7 +7,7 @@ in {
     ./applications/waybar.nix
     ./applications/hyprland/hyprland.nix
 
-    ./applications/neovim.nix
+    ./applications/neovim/neovim.nix
 
     ./services/dunst.nix
   ];
@@ -39,105 +39,68 @@ in {
   # packages
   home.packages = with pkgs; [
     
-    #flakes
-    nix-gaming.packages.${pkgs.hostPlatform.system}.osu-stable
+    # rice/desktop
+    xdg-desktop-portal-hyprland 
+    rofi-wayland swww # wall
+    grim slurp # screenshots
+    dunst libnotify # notifs
+    clipman wl-clipboard
+    hyprpicker # utilities
+    gradience adw-gtk3 # customization
 
-    # cli tools
-    alacritty
-    zsh
-    zplug
-    starship
-
-    neofetch
-
-    killall
-    inotify-tools
-    tree
-    lazygit
-
-    #wine
-    wineWowPackages.stable
-    winetricks
-
-    # this is for dependencies, not for dev work, use nix-shell
-    python310Full
-    python310Packages.pip
-    nodejs
-    gnumake
-    cargo
-    gcc # build tools
-    nixfmt
-
-    # core system apps
-    firefox
-    gnome.gnome-clocks
-
-    # other system apps
-    librewolf
-    libreoffice
-    webcord
-		mousai
-    spotify
-    spot
-    tidal-hifi
-    motrix
-    bitwarden
-    gimp
-    krita
+    # gui supported
+    firefox librewolf mullvad-browser
+    pavucontrol easyeffects # audio
+    mousai motrix # small gtk
+    spotify tidal-hifi amberol # moosic
+    gnome.gnome-clocks gnome.gnome-font-viewer
+    gnome.nautilus gnome.totem gnome.file-roller # files
+    gimp krita gnome.eog # imgs
+    kdenlive celluloid # vids
+    vscode kate # text
+    webcord element-desktop # social
     steam
-    gnome.gnome-font-viewer
-
-    kdenlive
-    glaxnimate
-    mlt
-    mediainfo
-
-    # funny
+    libreoffice
+    mullvad-vpn
+    qbittorrent
+    kitty
+    bitwarden
+    
+    # cli utilities
+    udiskie
+    killall
+    tree
+    gnupg
+    
+    # cli apps
+    zsh
+    neofetch
+    lazygit
     cava
+    ffmpeg # also is a dependency
+    
+    # gaming
+    yuzu-early-access cemu # emu
+    wineWowPackages.stable winetricks
+    nix-gaming.packages.${pkgs.hostPlatform.system}.osu-stable # comment out if building flake for the first time
 
-    # system utils
-    vscode
-    kate
+    # dependencies
+    inotify-tools
+    wireplumber playerctl mpdris2
+    glaxnimate mlt mediainfo # kdenlive
+    rnix-lsp # neovim lsp
 
-    ffmpeg
-  
-    # nautilus
-    gnome.totem
-    gnome.nautilus
-    nautilus-open-any-terminal
-
-    gnome.eog
-    celluloid
-
-    # customization
-    gradience
-    adw-gtk3
-    catppuccin-gtk
-    catppuccin-cursors
-    gnome.gnome-themes-extra
-
-    # audio
-    pavucontrol
-    easyeffects
-    wireplumber
-    playerctl
-    wireplumber
-    mpdris2
-
-    # desktop stuff
-    xdg-desktop-portal-hyprland # xdg for hyprland
-    rofi-wayland # files
-    bemenu
-    swww # animated wallpaper daemon
-    hyprpicker # color picker
-    grim
-    slurp # screenshot utility
-    dunst # notification daemon
-    libnotify # pushes notifications to dunst
-    udiskie # auto mounts stuff
-    clipman
-    wl-clipboard # clipboard manager
+    # dev
+    python310Full python310Packages.pip
+    nodejs
+    gnumake cargo gcc # compilers
+    nixfmt # nix formatter
+     
   ];
+
+  xdg.mimeApps.defaultApplications = {
+    "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
+  };
 
   # git is being stupid and gh wont work for authentication
   #	programs.git.enable = true;
@@ -233,3 +196,4 @@ in {
   };
 
 }
+
