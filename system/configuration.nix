@@ -25,6 +25,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
+  boot.supportedFilesystems = [ "ntfs" ];
+  
+  # boot animations
+  boot.plymouth.enable = true;
+
   # authentication agent
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
@@ -41,6 +46,9 @@
         TimeoutStopSec = 10;
       };
     };
+    user.extraConfig = ''
+      DefaultEnvironment="PATH=/run/current-system/sw/bin"
+    '';
   };
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -101,6 +109,8 @@
 
   # wayland!
   xdg.portal.wlr.enable = true;
+  xdg.portal.enable = true;
+
   # xdg.portal.enable = true;
 
   # Enables the Desktop Environment.
@@ -167,6 +177,11 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+  
+  # env variables
+  environment.sessionVariables = {
+    NIXOS_CONFIG_DIR = "$HOME/.nix";
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.noodle = {
@@ -232,6 +247,13 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
+
+  # vpn
+  services.mullvad-vpn.enable = true;
+
+  # bluetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   services.gnome.tracker.enable = true;
   services.gnome.tracker-miners.enable = true;
